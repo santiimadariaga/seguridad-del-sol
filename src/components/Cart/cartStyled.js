@@ -71,7 +71,7 @@ export const TitleCart = styled.p`
   font-size: clamp(20px, 5vw, 30px);
   font-weight: 700;
   background: linear-gradient(360deg, rgb(0, 0, 0), rgb(255, 0, 0));
-  background-clip: text;
+  -webkit-background-clip: text;
   // firefox lo puede tomar sin el -webkit-animation, chrome no
   -webkit-text-fill-color: transparent;
 `;
@@ -92,7 +92,7 @@ export const Price = styled.p`
   font-size: clamp(15px, 3vw, 20px);
   font-weight: 700;
   background: linear-gradient(360deg, rgb(0, 0, 0), rgb(255, 0, 0));
-  background-clip: text;
+  -webkit-background-clip: text;
   // firefox lo puede tomar sin el -webkit-animation, chrome no
   -webkit-text-fill-color: transparent;
 `;

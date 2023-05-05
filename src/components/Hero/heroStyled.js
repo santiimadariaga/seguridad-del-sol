@@ -70,7 +70,7 @@ export const TextsHero = styled.div`
 export const TitleHero = styled.h1`
   font-size: clamp(29px, 6vw, 45px);
   background: linear-gradient(360deg, rgb(0, 0, 0), rgb(255, 0, 0));
-  background-clip: text;
+  -webkit-background-clip: text;
   // firefox lo puede tomar sin el -webkit-animation, chrome no
   -webkit-text-fill-color: transparent;
 `;
