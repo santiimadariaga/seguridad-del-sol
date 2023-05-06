@@ -4,6 +4,7 @@ import { barsMedia } from "../../styles/mediaQueries";
 
 export const ContainerCartImg = styled.div`
   display: none;
+  position: relative;
 
   ${barsMedia} {
     display: flex;
@@ -30,6 +31,7 @@ export const LiStyled = styled.li`
   align-items: center;
   font-size: clamp(17px, 5vw, 20px);
   font-weight: 400;
+  position: relative;
 
   ${barsMedia} {
     display: none;
@@ -45,4 +47,24 @@ export const Overlay = styled.div`
   background-color: #0000004d;
   backdrop-filter: blur(5px);
   transition: all 0.5s linear;
+`;
+
+export const Bubble = styled.div`
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  background-color: red;
+  border: 1px solid white;
+  border-radius: 50%;
+
+  @media (min-width: 992px) {
+    z-index: 1;
+  }
 `;

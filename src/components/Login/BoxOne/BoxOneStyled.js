@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { mobile } from "../../../styles/mediaQueries";
+import { Form } from "formik";
 
 export const Box = styled.div`
   height: auto;
   width: 40%;
+  min-width: 250px;
   padding: 40px 30px 50px;
   background-color: coral;
   display: flex;
@@ -15,9 +18,27 @@ export const Box = styled.div`
     transform: scale(1.05);
     transition: all 0.3s ease;
   }
+
+  @media (max-width: 1042px) {
+    margin: 0 auto;
+    max-width: 90%;
+    width: 100%;
+  }
+
+  ${mobile} {
+    min-width: 0;
+    padding: 40px 15px 40px;
+  }
+`;
+
+export const FormStyled = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const Button = styled.button`
+  width: 100%;
   height: 25px;
   margin-top: 10px;
   background-color: #b8b8b8;

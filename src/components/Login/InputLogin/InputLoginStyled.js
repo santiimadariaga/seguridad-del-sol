@@ -17,7 +17,7 @@ export const Input = styled.input`
   width: 100%;
   height: 25px;
   padding: 0 5px;
-  font-size: clamp(12px, 2vw, 16px);
+  font-size: clamp(11px, 2vw, 15px);
   outline: none;
 
   &:focus {
