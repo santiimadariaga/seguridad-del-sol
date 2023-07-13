@@ -1,10 +1,16 @@
 export const recargasInitialValues = {
-  name: "",
-  email: "",
-  textarea: "",
+  name: '',
+  email: '',
+  textarea: '',
 };
 
 export const loginInitialValues = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
+};
+
+export const registerInitialValues = {
+  name: '',
+  email: '',
+  password: '',
 };

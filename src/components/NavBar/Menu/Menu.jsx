@@ -12,7 +12,7 @@ const Menu = ({menuRef}) => {
 <>
         <Lista ref={menuRef}>
             {
-                pathname === "/login" ?
+                pathname === "/login" || pathname === "/register" ?
                 menuLogin.map( ({ name, href, id }) => {
                     return (
                         <li key={id}>
@@ -29,7 +29,9 @@ const Menu = ({menuRef}) => {
             }            
         </Lista>
 
-            { pathname !== "/login" ?
+                     {/* VER ESTO */}
+
+            { pathname !== "/login" && pathname !== "/register"  ?
                 <CartBtn />
                 : null
             }
