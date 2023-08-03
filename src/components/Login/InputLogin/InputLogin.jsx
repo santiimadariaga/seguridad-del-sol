@@ -1,49 +1,52 @@
 import React from 'react'
 import { ContentInput, Input, Label } from './InputLoginStyled'
-import { ErrorMessage, Field } from 'formik'
+import { useField } from 'formik'
 import { ErrorMessageStyled } from '../../Recargas/InputRecargas/inputRecargasStyled'
 
-// const InputLogin = ({id, name, content}) => {
+
+export const InputLogin = ({ type, name, content }) => {
+  const [field, meta] = useField(name);
+  const { error, touched } = meta;
+
+  return (
+    <ContentInput>
+      <Label htmlFor={name}>{content}</Label>
+      <Input
+        id={name}
+        type={type}
+        {...field} 
+      />
+      {touched && error && <ErrorMessageStyled>{error}</ErrorMessageStyled>}
+    </ContentInput>
+  );
+};
+
+export default InputLogin;
+
+// export const InputLogin = ({ type, name, content }) => {
+
 //   return (
-//     <ContentInput name={name}>
-//       {({ field }) => (
-//         <>
-//           <Label htmlFor={id} >
+//       <Field name={name}>
+//         {({ field }) => (
+//         <ContentInput>
+//           <Label htmlFor={name} >
 //               {content}
 //           </Label>
-//           <Input type={name} id={id} name={name} />
-//           <ErrorMessage name={field.name}>
-//             { message => <ErrorMessageStyled> { message } </ErrorMessageStyled> }
-//           </ErrorMessage>
-//         </>
-//       )}
 
-//     </ContentInput>
-//   )
+//           <Input 
+//             id={name}
+//             type={type} 
+//             name={field.name}
+//             onChange={field.onChange}
+//             onBlur={field.onBlur}
+//             />
+//           <ErrorMessage name={field.name}>
+//             { error => <ErrorMessageStyled> { error } </ErrorMessageStyled>} 
+//           </ErrorMessage>
+//         </ContentInput>
+//         )}
+//       </Field>
+//     );
 // }
 
-export const InputLogin = ({ id, name, content, placeholder }) => {
-  return (
-      <Field name={name}>
-        {({ field }) => (
-        <ContentInput>
-          <Label htmlFor={id} >
-              {content}
-          </Label>
-
-          <Input 
-            type={name} 
-            placeholder={placeholder} 
-            {...field}
-            />
-          <ErrorMessage name={field.name}>
-            { message => <ErrorMessageStyled> { message } </ErrorMessageStyled> }
-          </ErrorMessage>
-        </ContentInput>
-        )}
-      </Field>
-    );
-}
-
-
-export default InputLogin
+// export default InputLogin

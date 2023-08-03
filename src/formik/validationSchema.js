@@ -36,4 +36,7 @@ export const registerValidationSchema = Yup.object({
   password: Yup.string()
     .matches(regPass, 'Min 1 mayus, 1 minus, 1 número y 8 caracteres')
     .required('Campo Requerido'),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden')
+    .required('Campo Requerido'),
 });

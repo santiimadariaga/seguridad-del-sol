@@ -19,12 +19,13 @@ export const getAllUsersController = async (req, res) => {
 export const createUserController = async (req, res) => {
   try {
     const userInput = req.body;
+    // console.log(userInput);
     const newUser = await createUser(userInput);
     console.log('New user: ', newUser);
     res.json(newUser);
     return newUser;
   } catch (error) {
-    console.log('Error: ', error);
+    console.log('ERROR controller: ', error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -32,7 +33,7 @@ export const createUserController = async (req, res) => {
 export const deleteUserController = async (req, res) => {
   try {
     const { id } = req.params;
-    await deleteUser(id);
+    await deleteUser(+id);
     console.log(`User deleted: `, id);
     res.json({ message: `User ${id} deleted successfully.` });
   } catch (error) {
