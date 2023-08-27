@@ -25,3 +25,13 @@ export const Button = styled.button`
     transition: all 0.3s ease;
   }
 `;
+
+export const ErrorParraf = styled.p`
+  &.showError {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+    color: red;
+  }
+  display: none;
+`;

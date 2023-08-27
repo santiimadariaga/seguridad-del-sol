@@ -22,31 +22,3 @@ export const InputLogin = ({ type, name, content }) => {
 };
 
 export default InputLogin;
-
-// export const InputLogin = ({ type, name, content }) => {
-
-//   return (
-//       <Field name={name}>
-//         {({ field }) => (
-//         <ContentInput>
-//           <Label htmlFor={name} >
-//               {content}
-//           </Label>
-
-//           <Input 
-//             id={name}
-//             type={type} 
-//             name={field.name}
-//             onChange={field.onChange}
-//             onBlur={field.onBlur}
-//             />
-//           <ErrorMessage name={field.name}>
-//             { error => <ErrorMessageStyled> { error } </ErrorMessageStyled>} 
-//           </ErrorMessage>
-//         </ContentInput>
-//         )}
-//       </Field>
-//     );
-// }
-
-// export default InputLogin

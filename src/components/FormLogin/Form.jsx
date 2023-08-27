@@ -1,39 +1,40 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import InputLogin from '../Login/InputLogin/InputLogin'
-import { Button, FormStyled } from './formStyled'
-import axios from 'axios'
+import { Button, ErrorParraf, FormStyled } from './formStyled'
 import { MyContext } from '../../context/MyContext'
 import { useNavigate } from 'react-router-dom'
+import { loginLogic } from './loginLogic'
+import { setStatesRegister } from './registerLogic'
 
-const DBURL = 'http://localhost:8000/db/login'
 
 const Form = ({register}) => {
-
-    // useStates del context ===>
-    const { name: contextName, email: contextEmail, pass: contextPass, setName, setEmail, setPass } = useContext(MyContext);
-    const formRef = useRef()
+ 
     const navigate = useNavigate()
-
-    async function setStatesRegister(nameC, emailC, passC) {
-      // mando un post con las variables actualizadas a la db
-      const inputLogin = await axios.post(DBURL, {name: nameC, email: emailC, password: passC})
-      return inputLogin
-    }
+    // states del context
+    const { name: contextName, email: contextEmail, pass: contextPass, setName, setEmail, setPass } = useContext(MyContext);
+    // refs
+    const registerRef = useRef()
+    const loginRef = useRef()
+    const errorRef = useRef()
   
+    // REGISTER
     const setAndRegister = async (e) => {
       e.preventDefault();
-  
-      // valores de los inputs usando el formRef
-      const nameValue = formRef.current[0].value;
-      const emailValue = formRef.current[1].value;
-      const passValue = formRef.current[2].value;
+      // valores de los inputs usando el registerRef
+      const nameValue = registerRef.current[0].value;
+      const emailValue = registerRef.current[1].value;
+      const passValue = registerRef.current[2].value;
   
       // estados con los valores de los inputs
       setName(nameValue);
       setEmail(emailValue);
       setPass(passValue);
 
-      navigate('/login');
+      if ( nameValue && emailValue && passValue ) {
+        // crear loading...
+        navigate('/login');
+      }
+      return;
     };
   
     useEffect(() => {
@@ -43,9 +44,15 @@ const Form = ({register}) => {
       }
     }, [contextName, contextEmail, contextPass]);
 
+    // LOGIN
+    const setAndLogin = async (e) => {
+      e.preventDefault()
+      await loginLogic(errorRef, loginRef)
+    }
+
   return (
      register ?
-        <FormStyled onSubmit={setAndRegister} ref={formRef}>
+        <FormStyled onSubmit={setAndRegister} ref={registerRef}>
             <InputLogin name="name" content="Nombre" type="text" />
             <InputLogin type="email" name="email" content="Email" />
             <InputLogin type="password" name="password" content="Contraseña" />
@@ -53,9 +60,10 @@ const Form = ({register}) => {
             <Button>REGISTRAR</Button>
         </FormStyled>
         : 
-        <FormStyled>
+        <FormStyled onSubmit={setAndLogin} ref={loginRef}>
             <InputLogin type="email" name="email" content="Email" />
             <InputLogin type="password" name="password" content="Contraseña" />
+            <ErrorParraf ref={errorRef} >Email o contraseña incorrectos</ErrorParraf>
             <Button>INGRESAR</Button>
         </FormStyled>
   )
