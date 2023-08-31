@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import InputLogin from '../Login/InputLogin/InputLogin'
-import { Button, ErrorParraf, FormStyled } from './formStyled'
+import { Button, ContainerLoader, ContentLoad, ErrorParraf, FormStyled, Loading } from './formStyled'
 import { MyContext } from '../../context/MyContext'
 import { useNavigate } from 'react-router-dom'
 import { loginLogic } from './loginLogic'
 import { setStatesRegister } from './registerLogic'
+import Imagenes from '../assets/imagenes'
 
 
 const Form = ({register}) => {
@@ -16,6 +17,7 @@ const Form = ({register}) => {
     const registerRef = useRef()
     const loginRef = useRef()
     const errorRef = useRef()
+    const loadRef = useRef()
   
     // REGISTER
     const setAndRegister = async (e) => {
@@ -48,6 +50,13 @@ const Form = ({register}) => {
     const setAndLogin = async (e) => {
       e.preventDefault()
       await loginLogic(errorRef, loginRef)
+      if ( errorRef.current.textContent === 'Acceso correcto, ingresando...' ){
+        loadRef.current.classList.add('showLoad');
+        setTimeout(() => {
+          loadRef.current.classList.remove('showLoad');
+          navigate('/')
+        }, 3000);
+      }
     }
 
   return (
@@ -63,7 +72,12 @@ const Form = ({register}) => {
         <FormStyled onSubmit={setAndLogin} ref={loginRef}>
             <InputLogin type="email" name="email" content="Email" />
             <InputLogin type="password" name="password" content="Contraseña" />
-            <ErrorParraf ref={errorRef} >Email o contraseña incorrectos</ErrorParraf>
+            <ContainerLoader>
+              <ErrorParraf ref={errorRef}></ErrorParraf>
+              <ContentLoad ref={loadRef}>
+                <Loading src={Imagenes.loading} />
+              </ContentLoad>
+            </ContainerLoader>
             <Button>INGRESAR</Button>
         </FormStyled>
   )

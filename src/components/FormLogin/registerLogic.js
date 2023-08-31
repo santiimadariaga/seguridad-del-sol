@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const DBURL = 'http://localhost:8000/db';
+// const DBURL = 'http://localhost:8000/db';
+const DBURL = 'https://seguridad-del-sol-api.onrender.com/db';
 
 export async function setStatesRegister(nameC, emailC, passC) {
   // mando un post con las variables actualizadas a la db
