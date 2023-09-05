@@ -1,18 +1,16 @@
-import axios from 'axios';
-
-// const DBURL = 'http://localhost:8000/db';
-const DBURL = 'https://seguridad-del-sol-api.onrender.com/db';
+import accessSuccess from './accessSuccess';
+import { axiosDb } from '../../config/axios';
 
 export const loginLogic = async (errorRef, loginRef) => {
   // valores de los inputs usando el registerRef
   const emailValueL = loginRef.current[0].value;
   const passValueL = loginRef.current[1].value;
 
-  async function nonExistUser(success) {
-    if (success) {
+  async function existUser(msgSuccess, token) {
+    if (msgSuccess) {
       errorRef.current.classList.add('showSuccess');
-      errorRef.current.innerHTML = success;
-      // ENVIAR A LA PAGINA DE USER
+      errorRef.current.innerHTML = msgSuccess;
+      accessSuccess(token);
       return;
     }
 
@@ -28,28 +26,30 @@ export const loginLogic = async (errorRef, loginRef) => {
   // estados con los valores de los inputs
   if (emailValueL && passValueL) {
     try {
-      const user = await axios.post(DBURL + '/login', {
+      const user = await axiosDb.post('/login', {
         email: emailValueL,
         password: passValueL,
       });
 
-      const result = user.data.user;
+      const result = user.data;
 
       // SI NO  ENCUENTRA EL EMAIL O LA PASSWORD ES INCORRECTA:
-      if (result === 'Wrong password' || result === 'Email not found') {
-        await nonExistUser();
+      if (
+        result.user === 'Wrong password' ||
+        result.user === 'Email not found'
+      ) {
+        await existUser();
         return;
       }
 
       // ACCESS SUCCESS ==>
-      nonExistUser('Acceso correcto, ingresando...');
-      // console.log('ACCESS SUCCESS');
+      existUser('Acceso correcto, ingresando...', result.token);
     } catch (error) {
       console.log(error);
       throw new Error(error);
     }
   } else {
-    await nonExistUser();
+    await existUser();
   }
   return;
 };
