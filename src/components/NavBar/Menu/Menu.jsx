@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AnchorMenu, Lista } from './menuStyled'
 import CartBtn from '../../Cart/CartButton'
 import menuList from '../../../utils/menuList'
+import { MyContext } from '../../../context/MyContext'
+import { axiosDb } from '../../../config/axios'
 
 const Menu = ({menuRef}) => {
-
+    
+    const { session } = useContext(MyContext)
     const pathname = window.location.pathname
     const menuLogin = menuList.filter( list => list.name === "Inicio")
-    
+
+    useEffect(() => {
+        async function getUser() {
+            try {
+                // console.log(session)
+                const user = await axiosDb.post('/userByToken', {token: session})
+                console.log('USER ==>', user)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getUser()
+    }, [])
+
   return (
 <>
         <Lista ref={menuRef}>
@@ -29,12 +45,10 @@ const Menu = ({menuRef}) => {
             }            
         </Lista>
 
-                     {/* VER ESTO */}
-
-            { pathname !== "/login" && pathname !== "/register"  ?
-                <CartBtn />
-                : null
-            }
+        { pathname !== "/login" && pathname !== "/register"  ?
+            <CartBtn />
+            : null
+        }
 </>
 
   )
