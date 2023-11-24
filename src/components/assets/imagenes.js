@@ -23,6 +23,7 @@ import carteles from './img/carteles.jpg';
 import especiales from './img/especiales.png';
 import recarga from './img/extintorRecarga.jpg';
 import loading from './img/loading.png';
+import mantenimiento from './img/mantenimiento.png';
 
 const Imagenes = {
   whatsApp,
@@ -50,6 +51,7 @@ const Imagenes = {
   especiales,
   recarga,
   loading,
+  mantenimiento,
 };
 
 export default Imagenes;

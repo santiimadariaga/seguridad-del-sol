@@ -33,7 +33,6 @@ const Form = ({register}) => {
       setPass(passValue);
 
       if ( nameValue && emailValue && passValue ) {
-        // crear loading...
         navigate('/login');
       }
       return;

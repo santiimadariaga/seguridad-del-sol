@@ -1,27 +1,25 @@
-import React, { useContext, useEffect } from 'react'
-import { AnchorMenu, Lista } from './menuStyled'
+import React, { useContext, useEffect, useRef } from 'react'
+import { Lista } from './menuStyled'
 import CartBtn from '../../Cart/CartButton'
-import menuList from '../../../utils/menuList'
+import MenuList from './MenuList'
 import { MyContext } from '../../../context/MyContext'
-import { axiosDb } from '../../../config/axios'
+// import { axiosDb } from '../../../config/axios'
 
 const Menu = ({menuRef}) => {
     
-    const { session } = useContext(MyContext)
+    // const { session } = useContext(MyContext)
+    const { user, checkTokens, getUser } = useContext(MyContext)
     const pathname = window.location.pathname
-    const menuLogin = menuList.filter( list => list.name === "Inicio")
+    const sessionRef = useRef()
 
     useEffect(() => {
-        async function getUser() {
-            try {
-                // console.log(session)
-                const user = await axiosDb.post('/userByToken', {token: session})
-                console.log('USER ==>', user)
-            } catch (error) {
-                console.log(error)
-            }
-        }
+      
+      if (sessionRef === 'Iniciar Sesión') {
+        checkTokens()
         getUser()
+      }
+
+      // eslint-disable-next-line
     }, [])
 
   return (
@@ -29,20 +27,16 @@ const Menu = ({menuRef}) => {
         <Lista ref={menuRef}>
             {
                 pathname === "/login" || pathname === "/register" ?
-                menuLogin.map( ({ name, href, id }) => {
-                    return (
-                        <li key={id}>
-                            <AnchorMenu href={href}>{name}</AnchorMenu>
-                        </li> )
-                })
-                :
-                menuList.map( ({ name, href, id }) => {
-                    return (
-                        <li key={id}>
-                            <AnchorMenu href={href}>{name}</AnchorMenu>
-                        </li> )
-                })
-            }            
+                // login page
+                <MenuList login />
+                : (
+                  pathname === "/user" ?
+                  // main page
+                  <MenuList user />
+                  :
+                  <MenuList sessionRef={sessionRef} sessionExist={ user } />
+                  )
+            }
         </Lista>
 
         { pathname !== "/login" && pathname !== "/register"  ?

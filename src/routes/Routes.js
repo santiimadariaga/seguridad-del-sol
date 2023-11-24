@@ -7,6 +7,7 @@ import {
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import Home from '../pages/Home/Home';
+import UserPage from '../pages/UserPage/UserPage';
 
 const Routes = () => {
   return (
@@ -15,6 +16,7 @@ const Routes = () => {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/user' element={<UserPage />} />
       </ReactDomRoutes>
     </BrowserRouter>
   );
