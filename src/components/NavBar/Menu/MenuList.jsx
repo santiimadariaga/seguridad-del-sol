@@ -1,16 +1,11 @@
 import Cookies from 'js-cookie';
 import { AnchorMenu } from './menuStyled';
-import { useContext } from 'react';
-import { MyContext } from '../../../context/MyContext';
 
 const MenuList = ({ login, user, sessionExist, sessionRef }) => {
-
-  const { session } = useContext(MyContext)
 
   async function deleteCookie() {
     console.log('logica logout')
     Cookies.remove('Auth')
-    console.log(session)
     return 'logica logout'
   }
 

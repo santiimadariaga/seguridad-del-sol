@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ProductsContainer = styled.section`
   margin: 0 auto;
@@ -13,6 +13,7 @@ export const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 0 20px;
   gap: 20px;

@@ -1,5 +1,5 @@
-import categories from "../../components/Productos/Select/categories";
-import { SELECT_CATEGORY } from "./categories-actions";
+import categories from '../../components/OptionsCategories/categories';
+import { SELECT_CATEGORY } from './categories-actions';
 
 const INITIAL_STATE = {
   categories: categories,

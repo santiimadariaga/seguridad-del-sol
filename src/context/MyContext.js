@@ -15,8 +15,7 @@ export const ContextProvider = ({ children }) => {
 
   const checkTokens = async () => {
     if (!Cookies.get('Auth')) {
-      console.log('Requiere iniciar sesión...');
-      console.log(session);
+      // console.log('Requiere iniciar sesión...');
       return;
     }
 

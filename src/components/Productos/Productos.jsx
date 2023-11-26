@@ -1,9 +1,9 @@
 import React from 'react'
 import Input from './InputProducts/Input'
 import { InputContainer, ProductsContainer } from './productosStyled'
-import SelectMUI from './Select/selectMUI'
 import CardsProducts from './CardsProducts/Cards'
 import { TitleHero } from '../Hero/heroStyled'
+import OptionsCategories from '../OptionsCategories/OptionsCategories'
 
 const Productos = () => {
 
@@ -11,7 +11,7 @@ const Productos = () => {
     <ProductsContainer id='venta'>
       <InputContainer>
         <Input />
-        <SelectMUI />
+        <OptionsCategories />
       </InputContainer>
 
       <TitleHero style={{padding: "30px 0"}} >

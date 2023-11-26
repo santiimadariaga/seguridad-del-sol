@@ -13,7 +13,6 @@ const BoxTwo = ({register}) => {
                 </ContentP>
             :
                 <ContentP>
-                    <Span href="#">¿Olvidaste tu contraseña?</Span>
                     <p style={{fontSize: "clamp(12px, 3vw, 18px)"}} >¿No tenés cuenta? <Span href="/register">Registrate!</Span></p>
                 </ContentP>
             }
