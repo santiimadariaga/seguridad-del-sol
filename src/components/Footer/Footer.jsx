@@ -12,9 +12,9 @@ const Footer = () => {
 
         {/* INFORMACION */}
           <InfoFoot>
-            <p><AnchorFooter href={links.home}>Información Legal</AnchorFooter></p>
-            <p><AnchorFooter href={links.home}>Política de Privacidad</AnchorFooter></p>
-            <p style={{fontSize: "clamp(12px, 5vw, 16px)"}} >
+            <p><AnchorFooter notPointer href={links.home}>Información Legal</AnchorFooter></p>
+            <p><AnchorFooter notPointer href={links.home}>Política de Privacidad</AnchorFooter></p>
+            <p style={{fontSize: "clamp(12px, 5vw, 16px)", fontWeight: '500'}} >
               Diseñador Web: 
               <AnchorFooter 
               href={links.github} 
@@ -36,7 +36,7 @@ const Footer = () => {
               <ContentIco>
                 <img style={{width: "100%", height: "100%"}} src={Imagenes.wppIco} alt="wpp" />
               </ContentIco>
-              <p><AnchorFooter href={links.whatsappMsg}>WhatsApp</AnchorFooter></p>
+              <p><AnchorFooter onClick={() => window.open(links.whatsappMsg, "_blank")}>WhatsApp</AnchorFooter></p>
             </ContentContact>
 
             <ContentContact style={{marginRight: "34px"}}>
@@ -44,6 +44,13 @@ const Footer = () => {
                 <img style={{width: "100%", height: "100%"}} src={Imagenes.emailIco} alt="email" />
               </ContentIco>
               <p><AnchorFooter href={links.emailMsg}>Email</AnchorFooter></p>
+            </ContentContact>
+
+            <ContentContact style={{marginRight: "34px"}}>
+              <ContentIco>
+                <img style={{width: "120%", height: "120%"}} src={Imagenes.instagram} alt="email" />
+              </ContentIco>
+              <p><AnchorFooter onClick={() => window.open(links.instagram, "_blank")}>Instagram</AnchorFooter></p>
             </ContentContact>
           </ContactFooter>
 

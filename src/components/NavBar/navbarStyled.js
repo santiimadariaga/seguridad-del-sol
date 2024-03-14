@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import { barsMedia, mobile, tablet } from "../../styles/mediaQueries";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { barsMedia, mobile, tablet } from '../../styles/mediaQueries';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
   background: rgb(255, 255, 255);
@@ -74,4 +74,15 @@ export const CloseIconStyled = styled(CloseIcon)`
   @media (min-width: 992px) {
     visibility: hidden;
   }
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000004d;
+  backdrop-filter: blur(5px);
+  transition: all 0.5s linear;
 `;

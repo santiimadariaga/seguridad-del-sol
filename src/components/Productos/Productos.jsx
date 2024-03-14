@@ -1,25 +1,12 @@
 import React from 'react'
-import Input from './InputProducts/Input'
-import { InputContainer, ProductsContainer } from './productosStyled'
+import { ProductsContainer } from './productosStyled'
 import CardsProducts from './CardsProducts/Cards'
-import { TitleHero } from '../Hero/heroStyled'
-import OptionsCategories from '../OptionsCategories/OptionsCategories'
 
 const Productos = () => {
 
   return (
     <ProductsContainer id='venta'>
-      <InputContainer>
-        <Input />
-        <OptionsCategories />
-      </InputContainer>
-
-      <TitleHero style={{padding: "30px 0"}} >
-        Nuestros productos!
-      </TitleHero>
-
       <CardsProducts />
-
     </ProductsContainer>
   )
 }

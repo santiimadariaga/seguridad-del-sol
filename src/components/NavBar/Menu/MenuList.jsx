@@ -1,13 +1,13 @@
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import { AnchorMenu } from './menuStyled';
 
 const MenuList = ({ login, user, sessionExist, sessionRef }) => {
 
-  async function deleteCookie() {
-    console.log('logica logout')
-    Cookies.remove('Auth')
-    return 'logica logout'
-  }
+  // async function deleteCookie() {
+  //   console.log('logica logout')
+  //   Cookies.remove('Auth')
+  //   return 'logica logout'
+  // }
 
   if (login) {
     return (
@@ -23,11 +23,14 @@ const MenuList = ({ login, user, sessionExist, sessionRef }) => {
         <li>
           <AnchorMenu href='/'>Inicio</AnchorMenu>
         </li>
+{/* 
         <li>
           <AnchorMenu onClick={ deleteCookie } href='/' >
             Cerrar Sesión
           </AnchorMenu>
         </li>
+*/}
+
       </>
     )
   }
@@ -40,13 +43,15 @@ const MenuList = ({ login, user, sessionExist, sessionRef }) => {
           <AnchorMenu href='#venta'>Venta</AnchorMenu>
         </li>
         <li>
-          <AnchorMenu href='#recarga'>Recarga</AnchorMenu>
+          <AnchorMenu href='#contacto'>Recarga</AnchorMenu>
         </li>
+{/*         
         <li>
           <AnchorMenu ref={sessionRef} href={ sessionExist === `Iniciar Sesión` ? `/login` : `/user` }>
             {sessionExist}
           </AnchorMenu>
         </li>
+*/}
     </>
   );
 };

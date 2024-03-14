@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Button, ContainerBtns, ContentCards } from './cardsStyled'
+// import { Button, ContainerBtn } from './cardsStyled';
+import {  ContentCards } from './cardsStyled';
 import Card from './Card';
 import { useSelector } from 'react-redux';
 import { products } from '../../../data/data'
@@ -14,9 +15,9 @@ const CardsProducts = () => {
     state => state.categories.selectedCategory
   );
   
-  const totalProducts = products.length
+  // const totalProducts = products.length
 
-  const productsFiltered = products.filter(producto => producto.category === selectedCategory);
+  const productsFiltered = products.filter(product => product.category === selectedCategory);
 
   useEffect(() => setLimit(INITIAL_LIMIT), [selectedCategory]);
 
@@ -46,7 +47,7 @@ const CardsProducts = () => {
               })
         }
       </ContentCards>
-
+{/* 
       { !selectedCategory && 
       <ContainerBtns>
         <Button
@@ -58,7 +59,7 @@ const CardsProducts = () => {
           disabled={ totalProducts <= limit }
           >VER MÁS</Button>
       </ContainerBtns>
-        }
+        } */}
     </>
 
   )

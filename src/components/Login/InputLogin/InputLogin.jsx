@@ -1,8 +1,6 @@
 import React from 'react'
-import { ContentInput, Input, Label } from './InputLoginStyled'
+import { ContentInput, Input, Label, ErrorMessageStyled } from './InputLoginStyled'
 import { useField } from 'formik'
-import { ErrorMessageStyled } from '../../Recargas/InputRecargas/inputRecargasStyled'
-
 
 export const InputLogin = ({ type, name, content }) => {
   const [field, meta] = useField(name);

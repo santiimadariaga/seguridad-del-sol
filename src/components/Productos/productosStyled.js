@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const ProductsContainer = styled.section`
   margin: 0 auto;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 1400px;
+  gap: 30px;
 `;
 
 export const InputContainer = styled.div`

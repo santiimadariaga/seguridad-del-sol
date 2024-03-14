@@ -24,6 +24,9 @@ import especiales from './img/especiales.png';
 import recarga from './img/extintorRecarga.jpg';
 import loading from './img/loading.png';
 import mantenimiento from './img/mantenimiento.png';
+import instagram from './img/instagram-192x192.png';
+import infoInstagram from './img/info_instagram-removebg-preview.png';
+import wppConverse from './img/converse_wpp-removebg-preview.png';
 
 const Imagenes = {
   whatsApp,
@@ -52,6 +55,9 @@ const Imagenes = {
   recarga,
   loading,
   mantenimiento,
+  instagram,
+  infoInstagram,
+  wppConverse,
 };
 
 export default Imagenes;

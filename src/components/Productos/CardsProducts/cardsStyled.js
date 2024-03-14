@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContentCards = styled.div`
   width: 100%;
@@ -27,7 +27,8 @@ export const CardProduct = styled.div`
   &:hover {
     .cardFront {
       transition: all 0.7s;
-      filter: blur(7px);
+      /* filter: blur(7px); */
+      filter: opacity(0.1);
     }
   }
 
@@ -51,7 +52,7 @@ export const CardFront = styled.div`
   font-size: 20px;
   color: white;
   text-shadow: 0px 0px 0px 5px red;
-  background-image: url("${(props) => props.photo}");
+  background-image: url('${(props) => props.photo}');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -88,7 +89,7 @@ export const ConsultButton = styled.button`
   width: auto;
 
   background-color: rgb(255, 80, 80);
-  padding: ${(props) => (props.cart ? "2px 8px" : "8px 18px")};
+  padding: ${(props) => (props.cart ? '2px 8px' : '8px 18px')};
   font: inherit;
   font-weight: 700;
   text-transform: uppercase;

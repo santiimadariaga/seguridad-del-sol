@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react'
-import { ContentHeader, Header, Logo, MenuIconStyled, CloseIconStyled, FlexNav } from './navbarStyled'
+import { ContentHeader, Header, Logo, MenuIconStyled, CloseIconStyled, FlexNav, Overlay } from './navbarStyled'
 import Imagenes from '../assets/imagenes'
 import Menu from './Menu/Menu'
-import { Overlay } from '../Cart/CartBtnStyled'
 
 const Navbar = () => {
 

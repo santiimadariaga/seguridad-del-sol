@@ -7,7 +7,7 @@ const Hero = () => {
       <ContentHero>
         <TextsHero>
           <TitleHero>Seguridad del Sol</TitleHero>
-          <TextHero>20 años entregando el servicio a la comunidad!</TextHero>
+          <TextHero>Más de 15 años entregando el servicio a la comunidad!</TextHero>
           <TextHero>Consorcios, Empresas, Propiedades, PyMes y más!</TextHero>
         </TextsHero>
       </ContentHero>

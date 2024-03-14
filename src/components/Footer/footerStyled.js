@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { mobile } from "../../styles/mediaQueries";
+import styled from 'styled-components';
+import { barsMedia } from '../../styles/mediaQueries';
 
 export const FooterContainer = styled.footer`
   height: auto;
@@ -53,11 +53,13 @@ export const InfoFoot = styled.div`
 
 export const AnchorFooter = styled.a`
   font-size: clamp(12px, 5vw, 16px);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-weight: 500;
   &:hover {
     color: rgb(155, 95, 95);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
+  cursor: ${(props) => (props.notPointer ? 'context-menu' : 'pointer')};
 `;
 
 export const ContainerLogoFooter = styled.div``;
@@ -86,7 +88,7 @@ export const ImgLogoSecondar = styled.img`
     width: 100px;
   }
 
-  ${mobile} {
+  @media (max-width: 445px) {
     display: none;
   }
 `;
@@ -95,14 +97,17 @@ export const ContactFooter = styled.div`
   display: flex;
   flex-direction: column;
   width: 33%;
-  align-items: flex-end;
-  padding-right: 20px;
-  gap: 8px;
+  align-items: start;
+  padding-left: 200px;
   padding-top: 10px;
-  padding-left: 10px;
+  gap: 8px;
+
+  ${barsMedia} {
+    padding-left: 100px;
+  }
 
   @media (max-width: 839px) {
-    align-items: start;
+    padding-left: 10px;
   }
 `;
 

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { Lista } from './menuStyled';
-import CartBtn from '../../Cart/CartButton';
 import MenuList from './MenuList';
 import { MyContext } from '../../../context/MyContext';
 
@@ -31,8 +30,6 @@ const Menu = ({ menuRef }) => {
           <MenuList sessionRef={sessionRef} sessionExist={user} />
         )}
       </Lista>
-
-      {pathname !== '/login' && pathname !== '/register' ? <CartBtn /> : null}
     </>
   );
 };

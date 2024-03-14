@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { barsMedia, mobile, tablet } from "../../../styles/mediaQueries";
+import styled from 'styled-components';
+import { barsMedia, mobile, tablet } from '../../../styles/mediaQueries';
 
 export const Lista = styled.ul`
   display: flex;
@@ -42,10 +42,11 @@ export const AnchorMenu = styled.a`
   position: relative;
   z-index: 1;
   padding: 10px;
+  font-weight: 500;
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     width: 20%;

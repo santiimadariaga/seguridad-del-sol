@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContentInput = styled.div`
   display: flex;
@@ -24,4 +24,9 @@ export const Input = styled.input`
     box-shadow: 10px 10px 14px -5px #000000;
     border: none;
   }
+`;
+
+export const ErrorMessageStyled = styled.p`
+  color: red;
+  font-size: clamp(12px, 2vw, 15px);
 `;

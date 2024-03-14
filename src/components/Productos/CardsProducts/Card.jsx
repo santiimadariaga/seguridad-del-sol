@@ -1,45 +1,32 @@
 import React, { useRef } from 'react'
 import { CardBack, CardFront, CardProduct, ConsultButton, Name } from './cardsStyled'
-import { useDispatch } from 'react-redux'
-import * as CartActions from '../../../redux/cart/cart-actions'
-import Modal from '../../Modal/Modal'
 
 const Card = ({ item }) => {
 
-  const dispatch = useDispatch()
-
-  const { photo, name, title, descr } = item
+  const { photo, title, descr } = item
+  const nameItem = item.name
 
   const cardRef = useRef()
 
-  const handlerModal = (e) => {
+  const handlerInfo = (e, nameItem) => {
     e.preventDefault();
-    dispatch(CartActions.addToCart(item))
 
-    const modal = cardRef.current.lastChild;
-    modal.style.display = "flex";
-    modal.style.transition = "all 0.5s ease";
-
-    setTimeout(() => {
-      modal.style.display = "none";
-    }, 1000);
+    window.open(`https://wa.me/5491121724526?text=Hola,%20te%20consulto%20sobre%20los%20${nameItem}`, "_blank")
 
     };
 
   return (
     <CardProduct ref={cardRef}>
 
-        <CardFront photo={photo} className='cardFront' >
-          <Name>{name}</Name>
-        </CardFront>
+      <CardFront photo={photo} className='cardFront' >
+        <Name>{nameItem}</Name>
+      </CardFront>
 
-        <CardBack className='cardBack' >
-          <h2 style={{textTransform: "uppercase"}} >{title}</h2>
-          <p style={{textAlign: "left"}} >{descr}</p>
-          <ConsultButton onClick={handlerModal}>Agregar al carrito</ConsultButton>
-        </CardBack>
-
-        <Modal message="Producto añadido al carrito" />
+      <CardBack className='cardBack' >
+        <h2 style={{textTransform: "uppercase"}} >{title}</h2>
+        <p style={{textAlign: "left", fontWeight: '500'}} >{descr}</p>
+        <ConsultButton onClick={(e) => handlerInfo(e, nameItem) }>Enviar mensaje</ConsultButton>
+      </CardBack>
 
     </CardProduct>
   )
